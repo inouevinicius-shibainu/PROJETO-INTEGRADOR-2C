@@ -1,0 +1,334 @@
+/* CSS RESET E VARIÁVEIS DE DESIGN */
+:root {
+    --primary: #4F46E5;        /* Roxo/Azul principal */
+    --primary-hover: #4338CA;  /* Cor de hover */
+    --bg-body: #F8FAFC;        /* Fundo claro */
+    --bg-card: #FFFFFF;        /* Fundo de cards/seções */
+    --text-dark: #0F172A;      /* Texto principal */
+    --text-muted: #64748B;     /* Texto secundário */
+    --border: #E2E8F0;         /* Linhas e bordas */
+    --radius: 12px;            /* Arredondamento dos cantos */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
+}
+
+/* 1. CABEÇALHO (HEADER) */
+header {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: var(--primary);
+}
+
+/* 2. ÁREA PRINCIPAL E LINKS RÁPIDOS */
+main {
+    flex: 1;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* SEÇÃO DE LINKS RÁPIDOS (QUICK LINKS) */
+.quick-links-section {
+    margin-top: 2rem;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: var(--text-dark);
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.card-link {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.card-link:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.1);
+}
+
+.card-image {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 180px;
+    min-height: 100px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background-image: url('../IMG/Exoesqueleto.png');
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Camada escura para o texto ficar legível */
+.card-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.1));
+}
+
+.card-image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+}
+
+.card-image-content {
+    position: relative; /* fica acima da camada escura */
+    padding: 1.5rem;
+    color: #fff;
+}
+
+.card-image-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.card-image-content p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.card-link h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.card-link p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5rem;
+    gap: 0.5rem;
+}
+
+/* 3. RODAPÉ (FOOTER) */
+footer {
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-col h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.footer-col a {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+    color: var(--primary);
+}
+
+.footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.proposta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.imgs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 20px;
+}
+
+.imgs img {
+    width: 95%;
+    height: 100px; /* Altura fixa opcional para uniformizar o grid */
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+    border-radius: 10px; /* Cantos arredondados (opcional) */
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.subcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.video {
+    width: 50%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.txt {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS */
+@media (max-width: 600px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+}
